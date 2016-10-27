@@ -15,5 +15,15 @@ require('laravel-elixir-vue-2');
 
 elixir(mix => {
     mix.sass('app.scss')
+       .less('app-less.less')
+       .less('./node_modules/admin-lte/build/less/AdminLTE.less', './public/css/adminlte-less.css')
+       .styles([
+           './node_modules/admin-lte/build/less/AdminLTE.less',
+           './node_modules/admin-lte/dist/css/skins/_all-skins.css',
+           './public/css/adminlte-less.css'
+       ])
+       .copy('node_modules/font-awesome/fonts/*.*','public/fonts/')
+       .copy('node_modules/ionicons/dist/fonts/*.*','public/fonts/')
+       .copy('node_modules/admin-lte/bootstrap/fonts/*.*','public/fonts/bootstrap')
        .webpack('app.js');
 });
